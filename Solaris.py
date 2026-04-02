@@ -71,6 +71,51 @@ ENV_ID = "ALE/Solaris-v5"
 # Stacking gives the agent a sense of motion (e.g. ball direction/speed).
 N_STACK = 4
 
+# Seed tracking storage
+SEEDS_DIR = Path("seeds")
+SEEDS_FILE = SEEDS_DIR / "experiment_seeds.json"
+
+
+def set_global_seed(seed: int) -> None:
+    """Set all relevant random seeds for reproducibility."""
+    import random
+    import torch
+
+    random.seed(seed)
+    np.random.seed(seed)
+    torch.manual_seed(seed)
+    if torch.cuda.is_available():
+        torch.cuda.manual_seed_all(seed)
+
+
+def record_seed(experiment_name: str, seed: int, note: str | None = None) -> None:
+    """Record used seed(s) for each experiment in seeds/experiment_seeds.json."""
+    SEEDS_DIR.mkdir(parents=True, exist_ok=True)
+
+    if SEEDS_FILE.exists():
+        with open(SEEDS_FILE, "r", encoding="utf-8") as f:
+            try:
+                data = json.load(f)
+            except json.JSONDecodeError:
+                data = {}
+    else:
+        data = {}
+
+    entry = data.get(experiment_name, {})
+    seeds = entry.get("seeds", [])
+    if seed not in seeds:
+        seeds.append(seed)
+    entry["seeds"] = seeds
+
+    if note:
+        # Prefer preserving existing note if already present.
+        entry.setdefault("note", note)
+
+    data[experiment_name] = entry
+
+    with open(SEEDS_FILE, "w", encoding="utf-8") as f:
+        json.dump(data, f, indent=2)
+
 
 # Logging into Tensor Board
 
@@ -234,6 +279,9 @@ def train_agent(
     """
     Path(model_path).parent.mkdir(parents=True, exist_ok=True)
 
+    # Ensure reproducible seed for all relevant PRNGs.
+    set_global_seed(seed)
+
     # Use provided hparams or fall back to built-in defaults.
     if hparams is None:
         hparams = dict(
@@ -384,7 +432,11 @@ def run_sweep(
         note = cfg.get("note", "")
         # Per-experiment timestep budget; falls back to the CLI --timesteps value.
         exp_timesteps = cfg.get("timesteps", default_timesteps)
-        print(f"Experiment {idx}/{total}: {name}  ({exp_timesteps:,} steps)")
+
+        # Ensure each experiment gets a reproducible but different seed.
+        experiment_seed = seed + idx
+
+        print(f"Experiment {idx}/{total}: {name}  ({exp_timesteps:,} steps, seed={experiment_seed})")
         if note:
             print(f"  {note}")
         print(f"{'='*60}")
@@ -402,16 +454,18 @@ def run_sweep(
             "exploration_fraction":   cfg["exploration_fraction"],
             "exploration_final_eps":  cfg["exploration_final_eps"],
             "timesteps":              exp_timesteps,
-            "seed":                   seed,
+            "seed":                   experiment_seed,
         }
 
         model_path = str(tmp_model_dir / name)
         log_dir   = f"{base_log_dir}/sweep/{name}"
 
+        record_seed(name, experiment_seed, note=note)
+
         score = train_agent(
             model_path=model_path,
             timesteps=exp_timesteps,
-            seed=seed,
+            seed=experiment_seed,
             tensorboard_log=log_dir,
             hparams=hparams,
         )
@@ -556,6 +610,9 @@ def main():
                 "seed":                   args.seed,
             }
             print(f"Loaded experiment '{args.experiment}' from {args.sweep_file}")
+            record_seed(args.experiment, args.seed, note=cfg.get("note", ""))
+        else:
+            record_seed("manual", args.seed, note="manual train run")
 
         train_agent(
             model_path=args.model_path,
