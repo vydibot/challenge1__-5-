@@ -14,21 +14,21 @@ How it works (high level):
 Usage
 -----
   # Train with built-in defaults
-  python breakout_dqn.py --mode train --model-path models/breakout_dqn
+  python solaris.py --mode train --model-path models/solaris
 
   # Train a specific named experiment from the JSON config
-  python breakout_dqn.py --mode train --experiment exp_02_lr_high --model-path models/breakout_dqn
+  python Solaris.py --mode train --experiment exp_02_lr_high --model-path models/solaris
 
   # Watch the trained agent play
-  python breakout_dqn.py --mode play --model-path models/breakout_dqn --episodes 3
+  python Solaris.py --mode play --model-path models/solaris --episodes 3
 
   # Run all experiments from sweep_configs.json and keep the best model
-  python breakout_dqn.py --mode sweep --sweep-file sweep_configs.json
+  python Solaris.py --mode sweep --sweep-file sweep_configs.json
   #   Each experiment uses the timesteps defined in its JSON entry.
   #   Override all at once with: --timesteps 500000
 
   # Monitor all sweep runs simultaneously in TensorBoard
-  python -m tensorboard.main --logdir logs/breakout_dqn/sweep --port 6006
+  python -m tensorboard.main --logdir logs/solaris/sweep --port 6006
   # Then open http://localhost:6006
 
 Trying a different Atari game
@@ -449,7 +449,7 @@ def inspect_model(model_path: str) -> None:
         model_path: Path to the saved model (with or without .zip extension).
 
     Example:
-        python breakout_dqn.py --mode inspect --model-path models/breakout_dqn
+        python solaris.py --mode inspect --model-path models/solaris
     """
     if not os.path.exists(f"{model_path}.zip"):
         raise FileNotFoundError(f"Model not found: {model_path}.zip")
@@ -502,7 +502,7 @@ def parse_args() -> argparse.Namespace:
              "Uses built-in defaults when omitted.",
     )
     parser.add_argument(
-        "--model-path", default="models/breakout_dqn",
+        "--model-path", default="models/solaris",
         help="Path to save (train) or load (play) the model (without .zip).",
     )
     parser.add_argument(
@@ -516,7 +516,7 @@ def parse_args() -> argparse.Namespace:
     )
     parser.add_argument("--seed", type=int, default=42)
     parser.add_argument(
-        "--tensorboard-log", default="logs/breakout_dqn",
+        "--tensorboard-log", default="logs/solaris",
         help="Directory for TensorBoard logs.",
     )
     return parser.parse_args()
