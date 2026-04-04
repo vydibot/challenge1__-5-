@@ -78,5 +78,23 @@
       80005
     ],
     "note": "Auto-tuned Solaris via Optuna tpe | lr=1.45e-04, buffer=10000, batch=32, starts=7972, gamma=0.95, train_freq=1, target_update=2090, exp_frac=0.20, exp_eps=0.04"
+  },
+  "best_empirical_exp_05_batch_128_replicate_1": {
+    "seeds": [
+      59232
+    ],
+    "note": "Larger batch size for more stable gradient estimates"
+  },
+  "best_empirical_exp_05_batch_128_replicate_2": {
+    "seeds": [
+      43235
+    ],
+    "note": "Larger batch size for more stable gradient estimates"
+  },
+  "best_empirical_exp_05_batch_128_replicate_3": {
+    "seeds": [
+      10780
+    ],
+    "note": "Larger batch size for more stable gradient estimates"
   }
 }

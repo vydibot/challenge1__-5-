@@ -544,5 +544,35 @@
     "target_update_interval": 2000,
     "exploration_fraction": 0.15,
     "exploration_final_eps": 0.01
+  },
+
+    {
+    "name": "optuna_tpe_best",
+    "note": "Auto-tuned Solaris via Optuna tpe | lr=1.45e-04, buffer=10000, batch=32, starts=7972, gamma=0.95, train_freq=1, target_update=2090, exp_frac=0.20, exp_eps=0.04",
+    "timesteps": 300000,
+    "learning_rate": 0.00014490173945283679,
+    "buffer_size": 10000,
+    "learning_starts": 7972,
+    "batch_size": 32,
+    "gamma": 0.95,
+    "train_freq": 1,
+    "target_update_interval": 2090,
+    "exploration_fraction": 0.2015913574208396,
+    "exploration_final_eps": 0.044556472791982014
+  },
+
+      {
+    "name": "best_empirical_exp_05_batch_128",
+    "note": "Larger batch size for more stable gradient estimates",
+    "timesteps": 300000,
+    "learning_rate": 1e-4,
+    "buffer_size": 50000,
+    "learning_starts": 10000,
+    "batch_size": 128,
+    "gamma": 0.99,
+    "train_freq": 4,
+    "target_update_interval": 1000,
+    "exploration_fraction": 0.15,
+    "exploration_final_eps": 0.01
   }
 ]
