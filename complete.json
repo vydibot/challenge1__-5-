@@ -486,6 +486,63 @@
     "target_update_interval": 1000,
     "exploration_fraction": 0.15,
     "exploration_final_eps": 0.02
-  }
+  },
 
+    {
+    "name": "exp_best_01_max_exploration",
+    "note": "Extends exploration to 30% of budget to prevent the agent from getting stuck in 'safety' local optima.",
+    "timesteps": 300000,
+    "learning_rate": 1e-4,
+    "buffer_size": 100000,
+    "learning_starts": 15000,
+    "batch_size": 128,
+    "gamma": 0.99,
+    "train_freq": 4,
+    "target_update_interval": 2000,
+    "exploration_fraction": 0.30,
+    "exploration_final_eps": 0.02
+  },
+  {
+    "name": "exp_best_02_long_horizon",
+    "note": "Increased gamma to 0.995 to help the agent value long-term objective completion in multi-stage levels.",
+    "timesteps": 300000,
+    "learning_rate": 1e-4,
+    "buffer_size": 100000,
+    "learning_starts": 20000,
+    "batch_size": 128,
+    "gamma": 0.995,
+    "train_freq": 4,
+    "target_update_interval": 2000,
+    "exploration_fraction": 0.15,
+    "exploration_final_eps": 0.01
+  },
+
+    {
+    "name": "exp_best_01_max_exploration",
+    "note": "Extends exploration to 30% of budget to prevent the agent from getting stuck in 'safety' local optima.",
+    "timesteps": 300000,
+    "learning_rate": 1e-4,
+    "buffer_size": 100000,
+    "learning_starts": 15000,
+    "batch_size": 128,
+    "gamma": 0.99,
+    "train_freq": 4,
+    "target_update_interval": 2000,
+    "exploration_fraction": 0.30,
+    "exploration_final_eps": 0.02
+  },
+  {
+    "name": "exp_best_02_long_horizon",
+    "note": "Increased gamma to 0.995 to help the agent value long-term objective completion in multi-stage levels.",
+    "timesteps": 300000,
+    "learning_rate": 1e-4,
+    "buffer_size": 100000,
+    "learning_starts": 20000,
+    "batch_size": 128,
+    "gamma": 0.995,
+    "train_freq": 4,
+    "target_update_interval": 2000,
+    "exploration_fraction": 0.15,
+    "exploration_final_eps": 0.01
+  }
 ]
