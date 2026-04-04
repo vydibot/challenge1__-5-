@@ -96,5 +96,11 @@
       10780
     ],
     "note": "Larger batch size for more stable gradient estimates"
+  },
+  "optuna_tpe_best(FINAL CHOOSE MODEL)": {
+    "seeds": [
+      43
+    ],
+    "note": "This is the best model from the Optuna TPE sweep"
   }
 }

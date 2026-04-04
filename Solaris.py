@@ -23,7 +23,7 @@ Usage
   python Solaris.py --mode play --model-path models/solaris --episodes 3
 
   # Run all experiments from sweep_configs.json and keep the best model
-  python Solaris.py --modes sweep --sweep-file sweep_configs.json
+  python Solaris.py --mode sweep --sweep-file sweep_configs.json
   #   Each experiment uses the timesteps defined in its JSON entry.
   #   Override all at once with: --timesteps 500000
 

@@ -1,2 +1,16 @@
 [
+        {
+    "name": "optuna_tpe_best(FINAL CHOOSE MODEL)",
+    "note": "This is the best model from the Optuna TPE sweep",
+    "timesteps": 300000,
+    "learning_rate": 0.00014490173945283679,
+    "buffer_size": 10000,
+    "learning_starts": 7972,
+    "batch_size": 32,
+    "gamma": 0.95,
+    "train_freq": 1,
+    "target_update_interval": 2090,
+    "exploration_fraction": 0.2015913574208396,
+    "exploration_final_eps": 0.044556472791982014
+  }
 ]
