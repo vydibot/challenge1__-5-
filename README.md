@@ -171,3 +171,26 @@ Then open `http://localhost:6006`.
 3. Evaluate with `--mode play`.
 4. Use `--mode tune` to optimize hyperparameters.
 5. Validate the best results with `--mode replicate`.
+
+## Video
+
+### Video description
+
+This video presents the Solaris Atari DQN project and walks through the agent design, hardware limits, hyperparameter strategy, empirical vs Optuna tuning, TensorBoard results, and final gameplay demonstrations.
+
+### Time marks
+
+- `0:40` — Description of agent and general characteristics
+- `1:30` — Explanation of hardware limitations
+- `1:50` — Explanation of hyperparameter selection strategies
+- `3:12` — TensorBoard results for empirical (manual hyperparameter selection)
+- `3:40` — Explanation of Bayesian optimization using Optuna (TPE)
+- `4:30` — Results using Optuna and the best result (TensorBoard results)
+- `5:45` — Random-seeds experiments for the best result on both approaches
+- `6:48` — Variance analysis of results for best hyperparameters: Optuna vs empirical
+- `9:00` — Final model gameplay demonstration (Optuna)
+
+### Link
+
+Add the video link here: `https://drive.google.com/file/d/1AiRy0wg7LL1oPYL17EXwwgzqK_-oUD2d/view?usp=sharing`
+
