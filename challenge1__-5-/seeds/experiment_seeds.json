@@ -1,0 +1,106 @@
+{
+  "trial_0": {
+    "seeds": [
+      42
+    ],
+    "note": "lr=5.27e-05, buffer=50000, batch=32, starts=13433, gamma=0.995, train_freq=4, target_update=672, exp_frac=0.21, exp_eps=0.03"
+  },
+  "trial_1": {
+    "seeds": [
+      43
+    ],
+    "note": "lr=3.61e-05, buffer=20000, batch=128, starts=5772, gamma=0.95, train_freq=8, target_update=3465, exp_frac=0.21, exp_eps=0.03"
+  },
+  "trial_2": {
+    "seeds": [
+      44
+    ],
+    "note": "lr=1.40e-04, buffer=20000, batch=128, starts=17758, gamma=0.99, train_freq=1, target_update=4583, exp_frac=0.10, exp_eps=0.02"
+  },
+  "trial_3": {
+    "seeds": [
+      45
+    ],
+    "note": "lr=5.26e-05, buffer=50000, batch=128, starts=9790, gamma=0.99, train_freq=1, target_update=1530, exp_frac=0.12, exp_eps=0.04"
+  },
+  "trial_4": {
+    "seeds": [
+      46
+    ],
+    "note": "lr=2.06e-04, buffer=50000, batch=64, starts=9215, gamma=0.99, train_freq=8, target_update=2502, exp_frac=0.30, exp_eps=0.01"
+  },
+  "trial_5": {
+    "seeds": [
+      47
+    ],
+    "note": "lr=9.32e-05, buffer=10000, batch=64, starts=14011, gamma=0.995, train_freq=4, target_update=2414, exp_frac=0.16, exp_eps=0.04"
+  },
+  "trial_6": {
+    "seeds": [
+      48
+    ],
+    "note": "lr=1.45e-04, buffer=10000, batch=32, starts=7972, gamma=0.95, train_freq=1, target_update=2090, exp_frac=0.20, exp_eps=0.04"
+  },
+  "trial_7": {
+    "seeds": [
+      49
+    ],
+    "note": "lr=7.37e-05, buffer=20000, batch=128, starts=16192, gamma=0.99, train_freq=8, target_update=2380, exp_frac=0.22, exp_eps=0.03"
+  },
+  "trial_8": {
+    "seeds": [
+      50
+    ],
+    "note": "lr=2.70e-05, buffer=50000, batch=64, starts=4702, gamma=0.995, train_freq=8, target_update=3044, exp_frac=0.10, exp_eps=0.05"
+  },
+  "trial_9": {
+    "seeds": [
+      51
+    ],
+    "note": "lr=1.73e-05, buffer=10000, batch=32, starts=18033, gamma=0.95, train_freq=1, target_update=2471, exp_frac=0.17, exp_eps=0.02"
+  },
+  "optuna_tpe_best_replicate_1": {
+    "seeds": [
+      58445,
+      25678,
+      51597
+    ],
+    "note": "Auto-tuned Solaris via Optuna tpe | lr=1.45e-04, buffer=10000, batch=32, starts=7972, gamma=0.95, train_freq=1, target_update=2090, exp_frac=0.20, exp_eps=0.04"
+  },
+  "optuna_tpe_best_replicate_2": {
+    "seeds": [
+      34181
+    ],
+    "note": "Auto-tuned Solaris via Optuna tpe | lr=1.45e-04, buffer=10000, batch=32, starts=7972, gamma=0.95, train_freq=1, target_update=2090, exp_frac=0.20, exp_eps=0.04"
+  },
+  "optuna_tpe_best_replicate_3": {
+    "seeds": [
+      80005
+    ],
+    "note": "Auto-tuned Solaris via Optuna tpe | lr=1.45e-04, buffer=10000, batch=32, starts=7972, gamma=0.95, train_freq=1, target_update=2090, exp_frac=0.20, exp_eps=0.04"
+  },
+  "best_empirical_exp_05_batch_128_replicate_1": {
+    "seeds": [
+      59232
+    ],
+    "note": "Larger batch size for more stable gradient estimates"
+  },
+  "best_empirical_exp_05_batch_128_replicate_2": {
+    "seeds": [
+      43235
+    ],
+    "note": "Larger batch size for more stable gradient estimates"
+  },
+  "best_empirical_exp_05_batch_128_replicate_3": {
+    "seeds": [
+      10780
+    ],
+    "note": "Larger batch size for more stable gradient estimates"
+  },
+  "optuna_tpe_best(FINAL CHOOSE MODEL)": {
+    "seeds": [
+      43
+    ],
+    "note": "This is the best model from the Optuna TPE sweep"
+  }
+}
