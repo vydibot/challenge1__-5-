@@ -102,5 +102,11 @@
       43
     ],
     "note": "This is the best model from the Optuna TPE sweep"
+  },
+  "optuna_tpe_best(2M TIMESTEPS challenge 2 )": {
+    "seeds": [
+      43
+    ],
+    "note": "This is the best model from the Optuna TPE sweep"
   }
 }
